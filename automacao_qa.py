@@ -6,13 +6,13 @@ with sync_playwright() as p:
     navegador = p.chromium.launch(headless=False)
     pagina = navegador.new_page()
     pagina.goto("https://play.watch.tv.br/login")
-    pagina.locator('xpath=/html/body/app-root/div/div/app-page/div/section/app-login/div/form/div[2]/app-input[1]/div/input').click()
-    pagina.fill('xpath=/html/body/app-root/div/div/app-page/div/section/app-login/div/form/div[2]/app-input[1]/div/input', "juliana.mika@watch.tv.br")
-    pagina.fill('xpath=/html/body/app-root/div/div/app-page/div/section/app-login/div/form/div[2]/app-input[2]/div/input', "123456Wa")
-    pagina.get_by_role("button").click()
+    pagina.get_by_role("textbox", name="Digite seu email").fill("juliana.mika@watch.tv.br")
+    pagina.get_by_role("textbox", name="Digite sua senha").fill("123456Wa")
+    pagina.get_by_role("button", name="Entrar").click()
     time.sleep(5)
+   
 
-    pagina.locator("profile-name").click() #profile-select
+    # pagina.locator("profile-name").click() #profile-select
     # time.sleep(10)
 
     # pagina.mouse.wheel(delta_x=0 ,delta_y=6881.65)
@@ -27,9 +27,6 @@ with sync_playwright() as p:
     # expect(pagina.get_by_text("Sugestões para Você", exact=True)).to_be_visible()
 
     
-    
-    
-
 
   
     
@@ -41,7 +38,6 @@ with sync_playwright() as p:
 
 
   
-
 
 
 
